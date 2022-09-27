@@ -24,7 +24,7 @@ public class TextFileSource {
                 dataStream.flatMap(new FlatMapFunction<String, Tuple2<String, Integer>>() {
                     @Override
                     public void flatMap(String value, Collector<Tuple2<String, Integer>> out) throws Exception {
-                        String[] tokens = value.toLowerCase().split("\\.");
+                        String[] tokens = value.toLowerCase().split("\\,");
                         for(String token:tokens) {
                             if (token.length() > 0 ) {
                                 out.collect(new Tuple2<String, Integer>(token,1));
